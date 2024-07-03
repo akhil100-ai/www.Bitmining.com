@@ -1,0 +1,320 @@
+BIT MINING
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bit Mining App</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-color: #3B0B75; /* Dark purple background */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #2C084D; /* Slightly lighter purple for the header */
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            color: #FFD700; /* Gold color for the title */
+        }
+
+        main {
+            flex: 1;
+            padding: 20px;
+            text-align: center;
+        }
+
+        main h2 {
+            color: #FFD700; /* Gold color for the subtitles */
+        }
+
+        footer {
+            background-color: #2C084D; /* Footer matches header */
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        form {
+            margin: 20px 0;
+        }
+
+        input {
+            display: block;
+            margin: 10px auto;
+            padding: 10px;
+            width: 20%;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #FFD700; /* Gold button */
+            color: black;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #E6B800; /* Slightly darker gold on hover */
+        }
+
+        .download-btn {
+            background-color: #FFD700; /* Gold background for download button */
+            color: black;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+            display: inline-block;
+        }
+
+        .download-btn:hover {
+            background-color: #E6B800; /* Slightly darker gold on hover */
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .logo-container {
+            width: 100px;
+            height: 100px;
+            margin: 20px auto;
+        }
+
+        .bitcoin-logo {
+            width:  100%;
+            height: 100%;
+        }
+
+        .animate-logo {
+            animation: spin 1s infinite linear;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Bit Mining App</h1>
+    </header>
+    <main>
+        <h2>Welcome to Bit Mining</h2>
+        <p>Start mining cryptocurrency today with our free, energy-light mobile app!</p>
+        <a href="download.html" id="downloadApp" class="download-btn">Download App Now</a>
+        
+        <div class="logo-container">
+            <svg class="bitcoin-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+                <path fill="#FFD700" stroke="#FFD700" stroke-width="3" d="M64 2.586c-33.924 0-61.414 27.49-61.414 61.414S30.076 125.414 64 125.414 125.414 97.924 125.414 64 97.924 2.586 64 2.586zm0 114.828c-29.485 0-53.414-23.93-53.414-53.414S34.515 10.586 64 10.586 117.414 34.515 117.414 64 93.485 117.414 64 117.414z"/>
+                <path fill="#FFD700" d="M90.17 65.69c2.897-7.054-.142-11.091-6.802-13.743 1.503-3.502.924-7.202-.637-10.452 4.54-1.45 7.575-4.502 8.588-8.588 1.017-4.104.345-9.068-2.242-11.655-2.586-2.586-6.08-3.045-9.715-3.115H73.17V9.174h-9.972v8.964h-8.058V9.174H45.82v8.964H33.704v10.47H41.52v8.44H33.704v10.47H41.52v17.52c0 3.8 1.02 7.354 2.966 10.41 1.945 3.056 4.8 4.99 8.002 6.082-1.28 2.604-2.51 5.268-3.545 8.064 4.788 1.034 8.564 2.31 11.416 5.18 2.86 2.86 3.664 5.15 3.838 8.64H73.17v-10.47h9.972v10.47h9.287v-10.47h4.23c1.374-.001 3.764-.057 5.512-.808 4.048-1.664 7.423-4.964 8.672-8.588 2.253-6.75 1.207-10.17-5.674-13.368 1.677-2.66 2.687-5.698 2.732-8.93zm-31.61 4.31c-1.604 0-2.94-.09-4.195-.262-3.212-.447-4.616-1.927-4.616-4.616V55.43h14.142c2.154 0 3.817.323 4.722 1.295.904.973 1.248 2.264 1.248 4.225 0 3.764-1.618 4.745-4.245 5.332-.987.2-1.988.31-2.993.348h-4.062zm11.915-27.892c-.89.87-2.124 1.41-4.055 1.41h-5.86v9.564h5.86c1.24 0 2.286-.08 3.207-.217 1.923-.308 3.388-1.152 4.055-2.29.667-1.138.896-2.614.896-4.564 0-1.93-.215-3.526-.974-4.564z"/>
+            </svg>
+        </div>
+
+        <div id="formButtons">
+            <button id="showRegisterForm">Register</button>
+            <button id="showLoginForm">Login</button>
+        </div>
+
+        <h2 class="hidden" id="registerSectionTitle">Registration</h2>
+        <form id="registrationForm" class="hidden" name="form1" action="ownerreg_action.jsp" method="post" enctype="multipart/form-data">
+            <div class="row">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-1"><label style="margin-top:5px;">Name</label></div>
+                <div class="col-sm-3"><input type="text" placeholder="Name" name="name" class="form-control" required></div>
+                <div class="col-sm-4"></div>
+            </div><br>
+                
+            <div class="row">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-1"><label style="margin-top:5px;">Password</label></div>
+                <div class="col-sm-3"><input type="password" placeholder="Password" name="pwd" class="form-control" required></div>
+                <div class="col-sm-4"></div>
+            </div><br>
+            
+                        
+            <div class="row">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-1"><label style="margin-top:5px;">Email-Id</label></div>
+                <div class="col-sm-3"><input type="email" placeholder="Email" name="emailid" class="form-control" required></div>
+                <div class="col-sm-4"></div>
+            </div><br>
+                
+            <div class="row">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-1"><label style="margin-top:5px;">Phone</label></div>
+                <div class="col-sm-3"><input type="text" placeholder="Phone Number" name="phone" class="form-control" required></div>
+                <div class="col-sm-4"></div>
+            </div><br>
+            
+            <button type="button" id="registerBtn">Register</button>
+        </form>
+
+        <h2 class="hidden" id="loginSectionTitle">Login</h2>
+        <form id="loginForm" class="hidden" name="form1" action="ownerreg_action.jsp" method="post" enctype="multipart/form-data">
+            <div class="row">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-1"><label style="margin-top:5px;">Name</label></div>
+                <div class="col-sm-3"><input type="text" placeholder="Name" name="name" class="form-control" required></div>
+                <div class="col-sm-4"></div>
+            </div><br>
+                
+            <div class="row">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-1"><label style="margin-top:5px;">Password</label></div>
+                <div class="col-sm-3"><input type="password" placeholder="Password" name="pwd" class="form-control" required></div>
+                <div class="col-sm-4"></div>
+            </div><br>
+            
+            <button type="button" id="loginBtn">Login</button>
+        </form>
+
+        <button id="startMiningBtn" class="hidden">Start Mining</button>
+        <button id="logoutBtn" class="hidden">Logout</button>
+        <div id="timer" class="hidden"></div>
+        <div id="coinsMined" class="hidden"></div>
+
+        <h2 id="message"></h2>
+    </main>
+    <footer>
+        <p>© 2023 Bit Mining Inc. All rights reserved.</p>
+    </footer>
+
+    <script>
+        let registeredUsers = {}; // For storing user registration details
+        let currentUser = null;
+        let coinsPerDay = 2;
+        let secondsInADay = 86400;
+        let coinsPerSecond = coinsPerDay / secondsInADay;
+        let totalCoins = 0;
+        let miningInterval;
+
+        document.getElementById('showRegisterForm').addEventListener('click', () => {
+            document.getElementById('registrationForm').classList.toggle('hidden');
+            document.getElementById('registerSectionTitle').classList.toggle('hidden');
+        });
+
+        document.getElementById('showLoginForm').addEventListener('click', () => {
+            document.getElementById('loginForm').classList.toggle('hidden');
+            document.getElementById('loginSectionTitle').classList.toggle('hidden');
+        });
+
+        document.getElementById('registerBtn').addEventListener('click', () => {
+            let name = document.querySelector('#registrationForm [name="name"]').value;
+            let password = document.querySelector('#registrationForm [name="pwd"]').value;
+            let email = document.querySelector('#registrationForm [name="emailid"]').value;
+            let phone = document.querySelector('#registrationForm [name="phone"]').value;
+
+            // Validate username, password, and phone number
+            if (name.length < 3) {
+                alert("Username must be at least 3 characters long.");
+                return;
+            }
+            if (password.length < 6) {
+                alert("Password must be at least 6 characters long.");
+                return;
+            }
+            let phonePattern = /^\d{10}$/;
+            if (!phonePattern.test(phone)) {
+                alert("Phone number must be 10 digits.");
+                return;
+            }
+
+            registeredUsers[name] = { password, email, phone };
+            alert('Registration successful! Please login to continue.');
+
+            // Hide the registration form after successful registration
+            document.getElementById('registrationForm').classList.add('hidden');
+            document.getElementById('registerSectionTitle').classList.add('hidden');
+        });
+
+        document.getElementById('loginBtn').addEventListener('click', () => {
+            let name = document.querySelector('#loginForm [name="name"]').value;
+            let password = document.querySelector('#loginForm [name="pwd"]').value;
+
+            if (registeredUsers[name] && registeredUsers[name].password === password) {
+                alert('Login successful!');
+                currentUser = name;
+
+                // Hide the login form after successful login
+                document.getElementById('loginForm').classList.add('hidden');
+                document.getElementById('loginSectionTitle').classList.add('hidden');
+
+                // Hide register, login, and download app buttons
+                document.getElementById('formButtons').classList.add('hidden');
+                document.getElementById('downloadApp').classList.add('hidden');
+
+                document.getElementById('startMiningBtn').classList.remove('hidden');
+                document.getElementById('logoutBtn').classList.remove('hidden');
+            } else {
+                alert('Invalid username or password.');
+            }
+        });
+
+        document.getElementById('startMiningBtn').addEventListener('click', () => {
+            document.getElementById('startMiningBtn').classList.add('hidden');
+            startMining();
+        });
+
+        document.getElementById('logoutBtn').addEventListener('click', () => {
+            if (miningInterval) clearInterval(miningInterval);
+            alert('Logged out successfully!');
+
+            // Reset UI elements
+            document.getElementById('formButtons').classList.remove('hidden');
+            document.getElementById('downloadApp').classList.remove('hidden');
+            document.getElementById('startMiningBtn').classList.add('hidden');
+            document.getElementById('logoutBtn').classList.add('hidden');
+            document.getElementById('timer').classList.add('hidden');
+            document.getElementById('coinsMined').classList.add('hidden');
+
+            // Reset mining variables
+            totalCoins = 0;
+            document.getElementById('message').textContent = '';
+            currentUser = null;
+        });
+
+        function startMining() {
+            // Add animation to the logo
+            document.querySelector('.bitcoin-logo').classList.add('animate-logo');
+
+            // Start mining process
+            document.getElementById('timer').classList.remove('hidden');
+            document.getElementById('coinsMined').classList.remove('hidden');
+
+            let timeLeft = 86400; // 1 day in seconds
+            miningInterval = setInterval(() => {
+                totalCoins += coinsPerSecond;
+                document.getElementById('timer').textContent = `Time left: ${--timeLeft} seconds`;
+                document.getElementById('coinsMined').textContent = `Coins mined: ${totalCoins.toFixed(8)} BTC`;
+
+                if (timeLeft <= 0) {
+                    clearInterval(miningInterval);
+                    document.getElementById('timer').textContent = 'Mining complete!';
+                    document.querySelector('.bitcoin-logo').classList.remove('animate-logo');
+                }
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
